@@ -48,7 +48,15 @@ const questions = [
             type: 'checkbox',
             name: 'license',
             message: 'Select a license:',
-            choices: ['None', 'Apache 2.0', 'BSD 2', 'Boost Software License 1.0', 'CC0 1.0', 'Eclipse Public License 1.0', 'GNU AGPL v3.0', 'GNU LGPL v3', 'GNU GPL v3.0', 'MIT', 'Mozilla Public License 2.0', 'The Unlicense']
+            choices: ['None', 'Apache2', 'BSD2', 'CC01', 'EclipsePublic1', 'GNUAGPLv3', 'GNULGPLv3', 'GNUGPLv3', 'MIT', 'Mozilla2', 'Unlicense'],
+            validate: GitHub_input => {
+                if (GitHub_input) {
+                    return true;
+                } else {
+                    console.log(data.license);
+                    return false;
+                }
+            }
         },
         {
             type: 'input',

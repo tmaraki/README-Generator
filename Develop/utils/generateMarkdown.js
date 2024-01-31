@@ -1,7 +1,7 @@
 // function to render badge 
 function renderLicenseBadge(license) {
   if (license !== 'None') {
-    return `![license](https://img.shields.io/badge/license-${license}-blue.svg)`;
+    return `![license](https://img.shields.io/badge/license-${license}-yellogreen.svg)`;
   } return "";
 }
 
