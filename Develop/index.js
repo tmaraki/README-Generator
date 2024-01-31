@@ -1,8 +1,10 @@
 // packages needed for this application
 const fs = require('fs');
 const inquirer = require('inquirer');
-const generateMarkdown = require('./utils/generateMarkdown')
+const generateMarkDown = require('./utils/generateMarkDown')
+console.log("Welcome to my README generator"); // logging the imported function
 
+// questions for md file
 const questions = [
         {
             type: 'input',
@@ -46,14 +48,14 @@ const questions = [
             type: 'checkbox',
             name: 'license',
             message: 'Select a license:',
-            choices: ['None', 'Apache 2.0', 'BSD 2-Clause License', 'Boost Software License 1.0', 'CC0 1.0', 'Eclipse Public License 1.0', 'GNU AGPL v3.0', 'GNU LGPL v3', 'GNU GPL v3.0', 'MIT', 'Mozilla Public License 2.0', 'The Unlicense']
+            choices: ['None', 'Apache 2.0', 'BSD 2', 'Boost Software License 1.0', 'CC0 1.0', 'Eclipse Public License 1.0', 'GNU AGPL v3.0', 'GNU LGPL v3', 'GNU GPL v3.0', 'MIT', 'Mozilla Public License 2.0', 'The Unlicense']
         },
         {
             type: 'input',
             name: 'GitHub',
             message: 'Copy your GitHub profile link here:',
-            validate: GitHub_Input => {
-                if (GitHub_Input) {
+            validate: GitHub_input => {
+                if (GitHub_input) {
                     return true;
                 } else {
                     console.log('Enter a link to your GitHub profile to continue!');
@@ -74,27 +76,32 @@ const questions = [
                 }
             }
         }
-    ]
+    ];
 
 
-function writeToFile(fileName, data) {
-    fs.writeFile(fileName, data, (err) => {
+console.log(generateMarkDown);
+
+// function to create file
+
+function writeToFile(fileName, userInput) {
+    fs.writeFile(fileName, userInput, (err) => {
       if (err) {
         console.log(err);
       } else {
         console.log('Successfully created README.md!');
       }
     });
-  }
+  };
 
-// function to initialize app: function init() {}
+
+// initialize app
 function init() {
     inquirer.prompt(questions)
     .then(function(userInput) {
         console.log(userInput)
-        writeToFile("README.md", generateMarkdown(userInput));
+        writeToFile("README.md", generateMarkDown(userInput));
     });
 };
 
-// function call to initialize app: init();
+// calling init 
 init();
