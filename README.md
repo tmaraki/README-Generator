@@ -12,6 +12,7 @@
 - Follow the prompts to add information about your project
 - A README.md file will automatically generate.
 - Repeat the node index command to recreate the markdown file
+- Link to walkthrough video: https://drive.google.com/file/d/1iAeO_YzoClJReLmZO0tVBw1Jqld82D-I/view?usp=sharing
 
 ## Questions
 - For any questions, comments or recommendations for improving this code, please email me at toshiemaraki@gmail.com
